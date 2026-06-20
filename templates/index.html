@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Książka Przepisów</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <div class="app-container">
+        <header class="app-header">
+            <div class="logo" id="logo-btn">
+                <h1>Recipe<span>Book</span></h1>
+            </div>
+            <nav class="nav-menu">
+                <button id="nav-list-btn" class="btn btn-secondary active">Przepisy</button>
+                <button id="nav-add-btn" class="btn btn-primary">Dodaj Przepis</button>
+            </nav>
+        </header>
+
+        <main class="app-main">
+
+            <section id="view-list" class="view-section">
+                <div class="section-header">
+                    <h2>Twoje Przepisy</h2>
+                    <div class="search-bar">
+                        <input type="text" id="search-input"
+                            placeholder="Wyszukaj przepis po nazwie lub składnikach...">
+                    </div>
+                </div>
+                <div id="recipes-grid" class="recipes-grid">
+                    <div class="loading">Ładowanie przepisów...</div>
+                </div>
+            </section>
+
+            <section id="view-add" class="view-section hidden">
+                <div class="form-card">
+                    <h2>Dodaj Nowy Przepis</h2>
+                    <p class="form-subtitle">Podziel się swoim kulinarnym sekretem!</p>
+
+                    <form id="recipe-form">
+                        <div class="form-group">
+                            <label for="recipe-title">Nazwa przepisu</label>
+                            <input type="text" id="recipe-title" required placeholder="np. Puszyste naleśniki z serem">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="recipe-ingredients">Składniki (wpisz każdy w nowej linii)</label>
+                            <textarea id="recipe-ingredients" rows="6" required
+                                placeholder="np.&#10;2 szklanki mąki&#10;2 jajka&#10;1 szklanka mleka"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="recipe-instructions">Instrukcja przygotowania</label>
+                            <textarea id="recipe-instructions" rows="8" required
+                                placeholder="np. Krok 1. Wymieszaj składniki..."></textarea>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" id="cancel-add-btn" class="btn btn-secondary">Anuluj</button>
+                            <button type="submit" class="btn btn-primary">Zapisz przepis</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <section id="view-detail" class="view-section hidden">
+                <button id="back-to-list-btn" class="btn btn-secondary back-btn">Powrót do listy</button>
+
+                <article class="recipe-detail-card">
+                    <header class="recipe-detail-header">
+                        <h2 id="detail-title">Nazwa Przepisu</h2>
+                        <time id="detail-date" class="recipe-date">Dodano: --.--.----</time>
+                    </header>
+
+                    <div class="recipe-detail-grid">
+                        <div class="detail-block ingredients-block">
+                            <h3>Składniki</h3>
+                            <p class="instruction-tip">Zaznacz składniki, które już masz!</p>
+                            <ul id="detail-ingredients" class="interactive-list">
+                            </ul>
+                        </div>
+
+                        <div class="detail-block instructions-block">
+                            <div class="block-header">
+                                <h3>Przygotowanie</h3>
+                                <button id="copy-recipe-btn" class="btn btn-small">Kopiuj instrukcję</button>
+                            </div>
+                            <div id="detail-instructions" class="recipe-instructions-text">
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+        </main>
+
+        <footer class="app-footer">
+            <p>&copy; 2026 Moja Książka Przepisów. Smacznego!</p>
+        </footer>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+
+</html>
